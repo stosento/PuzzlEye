@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MainScreenPlayButton : MonoBehaviour {
 
-	public void OnClick()
+	public void SwitchScene()//int newScene)
 	{
 		Application.LoadLevel (1);
 	}

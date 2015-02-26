@@ -40,7 +40,7 @@ public class Options: MonoBehaviour {
 			msg!=null?msg:"Instructions: Show your hand(s) to the camera, "+
 			"and use your fingertips to interact with the colored balls.\n\n"+
 			"Challenge: Use your finger to select a ball, pinch to release.\n\n" +
-			"Tips: If all glass balls disappear (out of screen). Click restart to resume.");
+			"Tips: If all balls disappear (out of screen). Click restart to resume.");
 
 		if (secondsTaken > 60) {
 			minutesTaken++;

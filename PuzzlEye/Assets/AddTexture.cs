@@ -4,14 +4,13 @@ using System.Collections;
 public class AddTexture : MonoBehaviour {
 
 	// Use this for initialization
-	public static IEnumerator ApplyTexture (Texture finalTexture, 
-	                                        PuzzleLocations puzzleLocation) 
+	public static Texture2D ApplyTexture (PuzzleLocations puzzleLocation) 
 	{
-		var url = "file://C:\\Users\\David\\Pictures\\david1.jpg";
+		var url = "file://C:\\Users\\user\\Pictures\\desert.jpg";
 		var www = new WWW(url);
 
 		// Wait for picture to fully load
-		yield return www;
+		Wait (www);
 		
 		var entireTexture = new Texture2D (4, 4, TextureFormat.DXT1, false);
 
@@ -40,8 +39,13 @@ public class AddTexture : MonoBehaviour {
 //		destTex.Apply();
 		
 		//finalTexture = destTex;
-		finalTexture = entireTexture;
+		return entireTexture;
 	}
+
+	static IEnumerator Wait(WWW www) {
+		yield return www;
+	}
+
 	
 	public enum PuzzleLocations
 	{

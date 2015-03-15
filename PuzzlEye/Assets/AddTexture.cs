@@ -39,8 +39,13 @@ public class AddTexture : MonoBehaviour {
 //		destTex.SetPixels(pix);
 //		destTex.Apply();
 
+<<<<<<< HEAD
 		//finalTexture = destTex;
 		finalTexture = entireTexture;
+=======
+		renderer.material.mainTexture = ThisTexture;
+		renderer.enabled = true;
+>>>>>>> 0f84913964d95208285a890c7f6deb2caa699228
 	}
 	
 	public enum PuzzleLocations

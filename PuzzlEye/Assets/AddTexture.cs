@@ -39,7 +39,6 @@ public class AddTexture : MonoBehaviour {
 		var destTex = new Texture2D(width, height);
 		destTex.SetPixels(pix);
 		destTex.Apply();
-
 		return destTex;
 	}
 

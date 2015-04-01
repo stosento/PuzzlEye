@@ -4,7 +4,6 @@ using System.Collections;
 public class PuzzleAreaScript : MonoBehaviour {
 	
 	public int rows, columns;
-	public GameObject piecePlane;
 	public GameObject[][] piecePlanes;
 	
 	// Use this for initialization
@@ -29,22 +28,13 @@ public class PuzzleAreaScript : MonoBehaviour {
 	void GeneratePiecePlanes(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
-
-		piecePlane = new GameObject ();
 		
 		piecePlanes = new GameObject[rows][];
-		
-		float rowInverse = 1.0f / rows;
-		float columnInverse = 1.0f / columns;
-		
-		Debug.Log (rowInverse);
-		Debug.Log (columnInverse);
 
 		for (int i = 0; i < rows; i++) {
 			piecePlanes[i] = new GameObject[columns];
 			
 			for (int j = 0; j < columns; j++) {
-//				piecePlanes[i][j] = Instantiate(piecePlane, new Vector3( 0f, 0f, 0f), Quaternion.identity) as GameObject;
 				piecePlanes[i][j] = GameObject.CreatePrimitive(PrimitiveType.Plane);
 				piecePlanes[i][j].transform.parent = GameObject.Find("PuzzleArea").transform;
 				

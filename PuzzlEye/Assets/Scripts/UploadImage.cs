@@ -5,10 +5,11 @@ using System.Collections.Generic;
 
 public class UploadImage : MonoBehaviour {
 
-	public static string FinalPath;
+	public static Texture2D FinalPath;
 	public static List<string> Paths = new List<string>();
 
 	public void ImageDialog() {
+		FinalPath = new Texture2D(4, 4, TextureFormat.RGBA32, false);
 		var dialog = new OpenFileDialog();
 		dialog.InitialDirectory = "%PICTURES%";
 		dialog.Filter = "Image Files(*.jpg;*.png;*.jpeg)|*.jpg;*.png;*.jpeg";
@@ -18,9 +19,10 @@ public class UploadImage : MonoBehaviour {
 		var path = dialog.FileName;
 
 		if (path != null) {
-			FinalPath = path;
 			if (!Paths.Contains (path)) Paths.Add (path);
+			var www = new WWW("file://" + path);
+			www.LoadImageIntoTexture(FinalPath);
+			AddTexture.Wait(www);
 		}
 	}
-
 }

@@ -6,17 +6,8 @@ public class AddTexture : MonoBehaviour {
 	// Use this for initialization
 	public static Texture2D ApplyTexture (PuzzleLocations puzzleLocation) 
 	{
-
-		var path = UploadImage.FinalPath;
-		var url = "file://" + path;
-		var www = new WWW(url);
-
-		// Wait for picture to fully load
-		Wait (www);
 		
-		var entireTexture = new Texture2D (4, 4, TextureFormat.RGBA32, false);
-
-		www.LoadImageIntoTexture(entireTexture);
+		var entireTexture = UploadImage.FinalPath;
 
 
 		int height = entireTexture.height/2;
@@ -47,7 +38,7 @@ public class AddTexture : MonoBehaviour {
 		return destTex;
 	}
 
-	static IEnumerator Wait(WWW www) {
+	public static IEnumerator Wait(WWW www) {
 		yield return www;
 	}
 

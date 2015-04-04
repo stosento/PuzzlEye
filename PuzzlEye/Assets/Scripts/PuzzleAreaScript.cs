@@ -52,6 +52,7 @@ public class PuzzleAreaScript : MonoBehaviour {
 				piecePlanes[i][j].transform.localPosition = new Vector3( randX,2f, randY);
 				piecePlanes[i][j].transform.Rotate(new Vector3(90f, 180f, 0f));
 				piecePlanes[i][j].renderer.material.mainTexture = AddDynamicTexture.ApplyDynamicTexture(i, j, DifficultySelectionScript.Difficulty);
+				piecePlanes[i][j].name = "Piece:(" + i.ToString() + "," + j.ToString() + ")";
 			}
 		}
 	}

@@ -42,19 +42,23 @@ public class PuzzleAreaScript : MonoBehaviour {
 				piecePlanes[i][j] = GameObject.CreatePrimitive(PrimitiveType.Plane);
 				piecePlanes[i][j].transform.parent = GameObject.Find("PuzzleArea").transform;
 
+				float pieceHeight = GameObject.Find("PuzzleArea").renderer.bounds.size.y/rows;
+				float pieceWidth = GameObject.Find("PuzzleArea").renderer.bounds.size.x/columns;
+
 				float totalHeight = GameObject.Find("PuzzleArea").renderer.bounds.size.y;
 				float totalWidth = GameObject.Find("PuzzleArea").renderer.bounds.size.x;
 
 				float randX = 0f;
 				float randY = 0f;
 
-				while(((Mathf.Abs(randX) <= (5f + totalWidth/columns)) && (Mathf.Abs(randY) <= (5f + totalWidth/rows)))) {
+				while(((Mathf.Abs(randX) <= (5f + pieceWidth) && (Mathf.Abs(randY) <= (5f + pieceHeight))))) {
 					randX = Random.Range (-20f, 20f);
 					randY = Random.Range (-7f, 7f);
 				}
 				
 				piecePlanes[i][j].transform.localScale = new Vector3(rowInverse*1f, columnInverse*1f, columnInverse*1f);
 				piecePlanes[i][j].transform.localPosition = new Vector3( randX,2f, randY);
+//				piecePlanes[i][j].transform.localPosition = new Vector3((-2)*j*pieceHeight + (totalHeight - pieceHeight), 2f, (-2)*i*pieceWidth + (totalWidth - pieceWidth));
 				piecePlanes[i][j].transform.Rotate(new Vector3(90f, 180f, 0f));
 				piecePlanes[i][j].renderer.material.mainTexture = AddDynamicTexture.ApplyDynamicTexture(i, j, DifficultySelectionScript.Difficulty);
 				piecePlanes[i][j].name = "Piece:(" + i.ToString() + "," + j.ToString() + ")";

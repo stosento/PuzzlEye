@@ -57,6 +57,7 @@ public class PuzzlePiece : MonoBehaviour {
 
 		if((Math.Abs (Math.Abs (correctX) - Math.Abs (this.transform.localPosition.x)) < 0.3) 
 		   && (Math.Abs (Math.Abs (correctZ) - Math.Abs (this.transform.localPosition.z)) < 0.3)) {
+			acquired = false;
 			this.transform.localPosition = new Vector3(correctX, 0.9f, correctZ);
 			this.GetComponent<PuzzlePiece>().enabled = false;
 		}

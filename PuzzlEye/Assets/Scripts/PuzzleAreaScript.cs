@@ -83,6 +83,16 @@ public class PuzzleAreaScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		bool done = true;
+		for (int i = 0; i < rows; i++) {
+			for(int j = 0; j < columns; j++) {
+				if(piecePlanes[i][j].GetComponent<PuzzlePiece>().enabled) {
+					done = false;
+				}
+			}
+		}
+		if (done) {
+			Debug.Log("DONE");		
+		}
 	}
 }

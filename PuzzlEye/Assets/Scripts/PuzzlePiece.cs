@@ -5,7 +5,7 @@ using System;
 public class PuzzlePiece : MonoBehaviour {
 
 	float correctX;
-	float correctY;
+	float correctZ;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +17,7 @@ public class PuzzlePiece : MonoBehaviour {
 				//the position each piece needs to be in to be correct
 				correctX = (-2) * row * PuzzleAreaScript.pieceHeight + 
 						(PuzzleAreaScript.totalHeight - PuzzleAreaScript.pieceHeight);
-				correctY = (-2) * column * PuzzleAreaScript.pieceWidth + 
+				correctZ = (-2) * column * PuzzleAreaScript.pieceWidth + 
 						(PuzzleAreaScript.totalWidth - PuzzleAreaScript.pieceWidth);
 
 				//puts puzzle piece in correct location on start
@@ -28,6 +28,18 @@ public class PuzzlePiece : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		Vector3 mousePos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 12f);
+		mousePos = Camera.main.ScreenToWorldPoint (mousePos);
+		mousePos = new Vector3 (mousePos.x*-2f, mousePos.y*-2f, mousePos.z);
+		if (Input.GetMouseButtonDown (0) && (mousePos.x <= (this.transform.localPosition.x + PuzzleAreaScript.pieceWidth)) 
+						&& (mousePos.x >= (this.transform.localPosition.x - PuzzleAreaScript.pieceWidth)) 
+						&& (mousePos.y <= (this.transform.localPosition.z + PuzzleAreaScript.pieceHeight))
+						&& (mousePos.y >= (this.transform.localPosition.z - PuzzleAreaScript.pieceHeight))) 
+		{
+			Debug.Log ("HI");
+			this.transform.localPosition = new Vector3(mousePos.x, this.transform.localPosition.y, mousePos.y);
+		}
+
+
 	}
 }

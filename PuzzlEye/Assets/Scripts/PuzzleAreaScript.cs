@@ -4,7 +4,7 @@ using System.Collections;
 public class PuzzleAreaScript : MonoBehaviour {
 	
 	public int rows, columns;
-	public GameObject[][] piecePlanes;
+	public static GameObject[][] piecePlanes;
 	public GameObject piecePlane;
 
 	public static float totalHeight;
@@ -70,7 +70,7 @@ public class PuzzleAreaScript : MonoBehaviour {
 				piecePlanes[i][j].transform.parent = GameObject.Find("PuzzleArea").transform;
 				
 				piecePlanes[i][j].transform.localScale = new Vector3(rowInverse*1f, columnInverse*1f, columnInverse*1f);
-				piecePlanes[i][j].transform.localPosition = new Vector3( randX, 2f, randY);
+				piecePlanes[i][j].transform.localPosition = new Vector3( randX, Random.Range(1f,2f), randY);
 
 				//Will place puzzle pieces in correct location initially
 //				piecePlanes[i][j].transform.localPosition = new Vector3((-2)*j*pieceHeight + (totalHeight - pieceHeight), 2f, (-2)*i*pieceWidth + (totalWidth - pieceWidth));

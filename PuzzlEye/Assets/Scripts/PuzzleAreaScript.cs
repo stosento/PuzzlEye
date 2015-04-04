@@ -42,11 +42,16 @@ public class PuzzleAreaScript : MonoBehaviour {
 				piecePlanes[i][j] = GameObject.CreatePrimitive(PrimitiveType.Plane);
 				piecePlanes[i][j].transform.parent = GameObject.Find("PuzzleArea").transform;
 
+				float totalHeight = GameObject.Find("PuzzleArea").renderer.bounds.size.y;
+				float totalWidth = GameObject.Find("PuzzleArea").renderer.bounds.size.x;
+
 				float randX = 0f;
 				float randY = 0f;
 
-				while (Mathf.Abs(randX) <= 5f) randX = Random.Range (-20f, 20f);
-				while (Mathf.Abs(randY) <= 5f) randY = Random.Range (-7f, 7f);
+				while(((Mathf.Abs(randX) <= (5f + totalWidth/columns)) && (Mathf.Abs(randY) <= (5f + totalWidth/rows)))) {
+					randX = Random.Range (-20f, 20f);
+					randY = Random.Range (-7f, 7f);
+				}
 				
 				piecePlanes[i][j].transform.localScale = new Vector3(rowInverse*1f, columnInverse*1f, columnInverse*1f);
 				piecePlanes[i][j].transform.localPosition = new Vector3( randX,2f, randY);

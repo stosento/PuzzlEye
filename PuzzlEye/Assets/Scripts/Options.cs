@@ -63,8 +63,8 @@ public class Options: MonoBehaviour {
 		msg=msg2;
 	}
 	private bool GameOver() {
-		GameObject go = GameObject.FindWithTag("Balls");
-		if (go == null) return true;
+		/*GameObject go = GameObject.FindWithTag("Balls");
+		if (go == null) return true;*/
 		return false;
 	}
 	private IEnumerator Pause(int p) {

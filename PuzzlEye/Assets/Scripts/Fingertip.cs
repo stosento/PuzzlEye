@@ -30,23 +30,19 @@ public class Fingertip : MonoBehaviour {
 		renderer.enabled=false;
 	}
 
+	void OnCollisionEnter(Collision c) {
+		if (c.gameObject.tag == "Template") {
+			Debug.Log("BLAHHHHHHH");
+		}
+	}
+
 	void OnCollisionStay(Collision col) {
-		if (col.gameObject.tag == "Balls") {
+		if (col.gameObject.tag == "Template") {
 			col.gameObject.transform.position = rigidbody.transform.renderer.bounds.center;
 		}
 	}
 
 	void OnCollisionExit(Collision ex) {
-		string color = ex.gameObject.name.Split('_')[0]; 
-		string plane = color + "_Plane";
-		GameObject p = GameObject.Find(plane);
-
-		if (rigidbody.position.x < p.renderer.bounds.max.x &&
-		    rigidbody.position.y < p.renderer.bounds.max.y && 
-		    rigidbody.position.x > p.renderer.bounds.min.x &&
-		    rigidbody.position.y > p.renderer.bounds.min.y && 
-		    ex.gameObject.name.Contains(color))
-
-			Destroy(ex.gameObject); 
+		Debug.Log ("Collision exited");
 	}
 }

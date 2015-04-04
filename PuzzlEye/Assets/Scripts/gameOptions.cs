@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Options: MonoBehaviour {
+public class gameOptions: MonoBehaviour {
 	public 	bool 	visible;
 	public 	float	secondsTaken = 0;
 	private float 	minutesTaken = 0;
@@ -64,6 +64,7 @@ public class Options: MonoBehaviour {
 	}
 	private bool GameOver() {
 		/*GameObject go = GameObject.FindWithTag("Balls");
+		GameObject go = false;
 		if (go == null) return true;*/
 		return false;
 	}

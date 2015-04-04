@@ -6,6 +6,12 @@ public class PuzzleAreaScript : MonoBehaviour {
 	public int rows, columns;
 	public GameObject[][] piecePlanes;
 	public GameObject piecePlane;
+
+	public static float totalHeight;
+	public static float totalWidth;
+
+	public static float pieceHeight;
+	public static float pieceWidth;
 	
 	// Use this for initialization
 	void Start () {
@@ -36,17 +42,19 @@ public class PuzzleAreaScript : MonoBehaviour {
 		float rowInverse = 1.0f / rows;
 		float columnInverse = 1.0f / columns;
 
+		totalHeight = GameObject.Find("PuzzleArea").renderer.bounds.size.y;
+		totalWidth = GameObject.Find ("PuzzleArea").renderer.bounds.size.x;
+
+		pieceHeight = totalHeight/rows;
+		pieceWidth = totalWidth/columns;
+
 		piecePlane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+		piecePlane.gameObject.AddComponent<PuzzlePiece>();
 
 		for (int i = 0; i < rows; i++) {
 			piecePlanes[i] = new GameObject[columns];
 			
 			for (int j = 0; j < columns; j++) {
-				float pieceHeight = GameObject.Find("PuzzleArea").renderer.bounds.size.y/rows;
-				float pieceWidth = GameObject.Find("PuzzleArea").renderer.bounds.size.x/columns;
-
-				float totalHeight = GameObject.Find("PuzzleArea").renderer.bounds.size.y;
-				float totalWidth = GameObject.Find("PuzzleArea").renderer.bounds.size.x;
 
 				float randX = 0f;
 				float randY = 0f;
@@ -56,9 +64,6 @@ public class PuzzleAreaScript : MonoBehaviour {
 					randY = Random.Range (-7f, 7f);
 				}
 
-				Debug.Log (randX);
-				Debug.Log (randY);
-
 				piecePlanes[i][j] = GameObject.Instantiate(piecePlane, 
 				                                           new Vector3( 0, 0, 0),
 				                                           Quaternion.Euler(90f, 180f, 0f)) as GameObject;
@@ -66,7 +71,10 @@ public class PuzzleAreaScript : MonoBehaviour {
 				
 				piecePlanes[i][j].transform.localScale = new Vector3(rowInverse*1f, columnInverse*1f, columnInverse*1f);
 				piecePlanes[i][j].transform.localPosition = new Vector3( randX, 2f, randY);
+
+				//Will place puzzle pieces in correct location initially
 //				piecePlanes[i][j].transform.localPosition = new Vector3((-2)*j*pieceHeight + (totalHeight - pieceHeight), 2f, (-2)*i*pieceWidth + (totalWidth - pieceWidth));
+
 				piecePlanes[i][j].renderer.material.mainTexture = AddDynamicTexture.ApplyDynamicTexture(i, j, DifficultySelectionScript.Difficulty);
 				piecePlanes[i][j].name = "Piece:(" + i.ToString() + "," + j.ToString() + ")";
 			}

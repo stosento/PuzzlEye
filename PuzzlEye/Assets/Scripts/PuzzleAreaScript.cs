@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Threading;
 
 public class PuzzleAreaScript : MonoBehaviour {
 	
 	public int rows, columns;
-	public static GameObject[][] piecePlanes;
+	public GameObject[][] piecePlanes;
 	public GameObject piecePlane;
 
-	public static float totalHeight;
-	public static float totalWidth;
+	public float totalHeight;
+	public float totalWidth;
 
-	public static float pieceHeight;
-	public static float pieceWidth;
-	
+	public float pieceHeight;
+	public float pieceWidth;
+
 	// Use this for initialization
 	void Start () {
 
@@ -70,7 +71,7 @@ public class PuzzleAreaScript : MonoBehaviour {
 				piecePlanes[i][j].transform.parent = GameObject.Find("PuzzleArea").transform;
 				
 				piecePlanes[i][j].transform.localScale = new Vector3(rowInverse*1f, columnInverse*1f, columnInverse*1f);
-				piecePlanes[i][j].transform.localPosition = new Vector3( randX, Random.Range(1f,2f), randY);
+				piecePlanes[i][j].transform.localPosition = new Vector3( randX, 1f, randY);
 
 				//Will place puzzle pieces in correct location initially
 //				piecePlanes[i][j].transform.localPosition = new Vector3((-2)*j*pieceHeight + (totalHeight - pieceHeight), 2f, (-2)*i*pieceWidth + (totalWidth - pieceWidth));
@@ -92,7 +93,7 @@ public class PuzzleAreaScript : MonoBehaviour {
 			}
 		}
 		if (done) {
-			Debug.Log("DONE");		
+			Debug.Log("DONE");   
 		}
 	}
 }

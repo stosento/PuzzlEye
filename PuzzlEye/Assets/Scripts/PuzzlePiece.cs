@@ -5,17 +5,10 @@ using System.Threading;
 
 public class PuzzlePiece : MonoBehaviour {
 
-	float correctX;
-	float correctZ;
-
 	int row, column;
-
 	float minX, minY, maxX, maxY, halfW, halfH;
 
 	PuzzleAreaScript script;
-
-	public bool acquired = false;
-	
 
 	// Use this for initialization
 	void Start () {
@@ -26,15 +19,6 @@ public class PuzzlePiece : MonoBehaviour {
 
 			row = Convert.ToInt32 (name [7]) - Convert.ToInt32 ('0');
 			column = Convert.ToInt32 (name [9]) - Convert.ToInt32 ('0');
-
-			//the position each piece needs to be in to be correct
-			correctX = (-2) * row * script.pieceHeight + (script.totalHeight - script.pieceHeight);
-			correctZ = (-2) * column * script.pieceWidth + (script.totalWidth - script.pieceWidth);
-			//puts puzzle piece in correct location on start
-			//this.transform.localPosition = new Vector3 (correctX, 2f, correctZ);
-
-			Debug.Log("Piece width = " + script.pieceWidth);
-			Debug.Log("Piece height = " + script.pieceHeight);
 
 			minX = GameObject.Find ("PuzzleArea").renderer.bounds.min.x + (script.pieceWidth * column);
 			maxX = minX + script.pieceWidth;
@@ -50,7 +34,7 @@ public class PuzzlePiece : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		this.rigidbody.velocity = Vector3.zero;
+		//this.rigidbody.velocity = Vector3.zero;
 
 		/*acquired = false;
 		bool elseAcquired = false;
@@ -82,18 +66,6 @@ public class PuzzlePiece : MonoBehaviour {
 		}*/
 	}
 
-	void OnCollisionEnter(Collision col) {
-		if (col.gameObject.tag == "Fingers") {
-			Debug.Log ("ROW: " + row);
-			Debug.Log ("COL: " + column);
-			Debug.Log ("The name of this object is: " + this.name);
-			Debug.Log ("minX: " + minX);
-			Debug.Log ("maxX: " + maxX);
-			Debug.Log ("minY: " + minY);
-			Debug.Log ("maxY: " + maxY);
-		}
-	}
-
 	void OnCollisionStay(Collision col) {
 		if (col.gameObject.tag == "Fingers") {
 			this.rigidbody.transform.position = col.gameObject.transform.renderer.bounds.center;
@@ -103,8 +75,6 @@ public class PuzzlePiece : MonoBehaviour {
 	void OnCollisionExit(Collision col) {
 		if (col.gameObject.tag == "Fingers") {
 			this.rigidbody.velocity = Vector3.zero;
-			Debug.Log ("x position: " + col.transform.position.x);
-			Debug.Log ("y position: " + col.transform.position.y);
 
 			if((col.transform.position.x >= minX) && (col.transform.position.x <= maxX) && 
 			   (col.transform.position.y >= minY) && (col.transform.position.y <= maxY))

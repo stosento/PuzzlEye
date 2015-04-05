@@ -85,7 +85,6 @@ public class PuzzleAreaScript : MonoBehaviour {
 
 				pieceRigidBody.freezeRotation = true;
 				pieceRigidBody.useGravity = false;
-				pieceRigidBody.velocity=Vector3.zero;
 			}
 		}
 	}
@@ -95,6 +94,7 @@ public class PuzzleAreaScript : MonoBehaviour {
 		bool done = true;
 		for (int i = 0; i < rows; i++) {
 			for(int j = 0; j < columns; j++) {
+				piecePlanes[i][j].rigidbody.velocity = Vector3.zero;
 				if(piecePlanes[i][j].GetComponent<PuzzlePiece>().enabled) {
 					done = false;
 				}

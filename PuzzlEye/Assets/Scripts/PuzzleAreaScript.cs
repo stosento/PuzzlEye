@@ -78,6 +78,14 @@ public class PuzzleAreaScript : MonoBehaviour {
 
 				piecePlanes[i][j].renderer.material.mainTexture = AddDynamicTexture.ApplyDynamicTexture(i, j, DifficultySelectionScript.Difficulty);
 				piecePlanes[i][j].name = "Piece:(" + i.ToString() + "," + j.ToString() + ")";
+				piecePlanes[i][j].tag = "Pieces";
+
+				SphereCollider pieceCollider = piecePlanes[i][j].AddComponent<SphereCollider>();
+				Rigidbody pieceRigidBody = piecePlanes[i][j].AddComponent<Rigidbody>();
+
+				pieceRigidBody.freezeRotation = true;
+				pieceRigidBody.useGravity = false;
+				pieceRigidBody.velocity=Vector3.zero;
 			}
 		}
 	}

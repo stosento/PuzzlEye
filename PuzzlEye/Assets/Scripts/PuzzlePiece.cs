@@ -8,6 +8,8 @@ public class PuzzlePiece : MonoBehaviour {
 	float correctX;
 	float correctZ;
 
+	float minX, minY, maxX, maxY;
+
 	PuzzleAreaScript script;
 
 	public bool acquired = false;
@@ -27,7 +29,12 @@ public class PuzzlePiece : MonoBehaviour {
 			correctX = (-2) * row * script.pieceHeight + (script.totalHeight - script.pieceHeight);
 			correctZ = (-2) * column * script.pieceWidth + (script.totalWidth - script.pieceWidth);
 			//puts puzzle piece in correct location on start
-			//this.transform.localPosition = new Vector3 (correctX, 2f, correctY);
+			this.transform.localPosition = new Vector3 (correctX, 2f, correctZ);
+
+			minX = GameObject.Find ("PuzzleArea").renderer.bounds.min.x;
+			minY = GameObject.Find ("PuzzleArea").renderer.bounds.min.y;
+			maxX = GameObject.Find ("PuzzleArea").renderer.bounds.max.x;
+			maxY = GameObject.Find ("PuzzleArea").renderer.bounds.max.y;
 		}
 
 	}
@@ -39,11 +46,12 @@ public class PuzzlePiece : MonoBehaviour {
 		Vector3 mousePos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 12f);
 		mousePos = Camera.main.ScreenToWorldPoint (mousePos);
 		mousePos = new Vector3 (mousePos.x*-2f, mousePos.y*-2f, mousePos.z);
+
 		if (Input.GetMouseButtonDown (0) && (mousePos.x <= (this.transform.localPosition.x + script.pieceWidth)) 
 						&& (mousePos.x >= (this.transform.localPosition.x - script.pieceWidth)) 
 						&& (mousePos.y <= (this.transform.localPosition.z + script.pieceHeight))
 						&& (mousePos.y >= (this.transform.localPosition.z - script.pieceHeight))) 
-		{
+		{	 
 			for(int i = 0; i < script.rows; i++) {
 				for(int j = 0; j < script.columns; j++) {
 					if(script.piecePlanes[i][j].GetComponent<PuzzlePiece>().acquired) elseAcquired = true;
@@ -60,6 +68,29 @@ public class PuzzlePiece : MonoBehaviour {
 			acquired = false;
 			this.transform.localPosition = new Vector3(correctX, 0.9f, correctZ);
 			this.GetComponent<PuzzlePiece>().enabled = false;
+		}
+	}
+
+	void OnCollisionStay(Collision col) {
+		Debug.Log ("Position: " + col.transform.position);
+		if (col.gameObject.tag == "Fingers") {
+			var x = col.gameObject.transform.position.x;
+			var y = col.gameObject.transform.position.y;
+			//this.transform.localPosition = new Vector3(x, this.transform.localPosition.y, y);
+			this.rigidbody.transform.position = col.gameObject.transform.renderer.bounds.center;
+			//rigidbody.transform.position = col.gameObject.transform.renderer.bounds.center;
+		}
+	}
+
+	void OnCollisionExit(Collision col) {
+
+		Debug.Log ("Position: " + col.transform.position);
+		this.rigidbody.velocity = Vector3.zero;
+
+		if((Math.Abs (Math.Abs (correctX) - Math.Abs (this.transform.localPosition.x)) < 0.3) 
+		   && (Math.Abs (Math.Abs (correctZ) - Math.Abs (this.transform.localPosition.z)) < 0.3))
+		{
+			Debug.Log ("OH GOD YES");
 		}
 	}
 }

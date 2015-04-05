@@ -29,20 +29,4 @@ public class Fingertip : MonoBehaviour {
 		rigidbody.detectCollisions=false;
 		renderer.enabled=false;
 	}
-
-	void OnCollisionEnter(Collision c) {
-		if (c.gameObject.tag == "Template") {
-			Debug.Log("BLAHHHHHHH");
-		}
-	}
-
-	void OnCollisionStay(Collision col) {
-		if (col.gameObject.tag == "Template") {
-			col.gameObject.transform.position = rigidbody.transform.renderer.bounds.center;
-		}
-	}
-
-	void OnCollisionExit(Collision ex) {
-		Debug.Log ("Collision exited");
-	}
 }

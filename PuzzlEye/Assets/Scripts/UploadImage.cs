@@ -6,7 +6,7 @@ using System;
 
 public class UploadImage : MonoBehaviour {
 
-	public static Texture2D FinalPath;
+	public static Texture2D FinalPath = null;
 	public static List<string> Paths = new List<string>();
 
 	public void ImageDialog() {
@@ -20,10 +20,13 @@ public class UploadImage : MonoBehaviour {
 		var path = dialog.FileName;
 
 		if (path != null) {
-			if (!Paths.Contains (path)) Paths.Add (path);
-			var www = new WWW("file://" + path);
-			www.LoadImageIntoTexture(FinalPath);
-			AddTexture.Wait(www);
+			if (!Paths.Contains (path))
+				Paths.Add (path);
+			var www = new WWW ("file://" + path);
+			www.LoadImageIntoTexture (FinalPath);
+			AddTexture.Wait (www);
+		} else {
+			FinalPath = null;
 		}
 	}
 }

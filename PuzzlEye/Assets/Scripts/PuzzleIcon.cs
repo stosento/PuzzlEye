@@ -4,20 +4,15 @@ using System;
 
 public class PuzzleIcon : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () 
+
+	public void OnClick(String imageName)
 	{
-		
+		Debug.Log ("file://" + Application.dataPath + "/DefaultPuzzles/" + imageName);
+
+		UploadImage.FinalPath = new Texture2D (4, 4, TextureFormat.RGBA32, false);
+		var www = new WWW ("file://" + Application.dataPath + "/DefaultPuzzles/" + imageName);
+		www.LoadImageIntoTexture (UploadImage.FinalPath);
+		AddTexture.Wait (www);
 	}
 
-	public void OnClick(Texture2D image)
-	{
-//		UploadImage.FinalPath = new Texture2D (4, 4, TextureFormat.RGBA32, false);
-		UploadImage.FinalPath = image;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

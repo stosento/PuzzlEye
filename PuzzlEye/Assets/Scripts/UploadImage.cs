@@ -7,7 +7,6 @@ using System;
 public class UploadImage : MonoBehaviour {
 
 	public static Texture2D FinalPath = null;
-	public static Texture2D DefaultPath = null;
 	public static List<string> Paths = new List<string>();
 
 	public void ImageDialog() {

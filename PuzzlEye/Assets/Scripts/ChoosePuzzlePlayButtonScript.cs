@@ -10,7 +10,7 @@ public class ChoosePuzzlePlayButtonScript : MonoBehaviour {
 		if (UploadImage.FinalPath == null) {
 			EditorUtility.DisplayDialog("No Image Selected", "Please select an image!", "OK");
 		} else {
-			SwitchScene.Switch(5);
+			Application.LoadLevel(5);
 		}
 	}
 }

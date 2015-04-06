@@ -69,20 +69,23 @@ public class PuzzlePiece : MonoBehaviour {
 	void OnCollisionStay(Collision col) {
 		if (col.gameObject.tag == "Fingers") {
 			this.rigidbody.transform.position = col.gameObject.transform.renderer.bounds.center;
+			Debug.Log (this.rigidbody.transform.position);
 		}
 	}
 
 	void OnCollisionExit(Collision col) {
 		if (col.gameObject.tag == "Fingers") {
-			this.rigidbody.velocity = Vector3.zero;
+			if (this.rigidbody)
+				this.rigidbody.velocity = Vector3.zero;
 
 			if((col.transform.position.x >= minX) && (col.transform.position.x <= maxX) && 
 			   (col.transform.position.y >= minY) && (col.transform.position.y <= maxY))
 			{
-				Debug.Log ("Should now be locked");
-				this.rigidbody.transform.position = new Vector3(minX + halfW, maxY - halfW, 0);
+				this.rigidbody.transform.position = new Vector3(minX + halfW, maxY - halfW, 0.5f);
 				this.rigidbody.isKinematic = true;
 				this.collider.enabled = false;
+				if (this.rigidbody)
+					Debug.Log ("Why are you here");
 			}
 		}
 	}

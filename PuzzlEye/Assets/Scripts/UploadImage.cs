@@ -25,6 +25,7 @@ public class UploadImage : MonoBehaviour {
 			var www = new WWW ("file://" + path);
 			www.LoadImageIntoTexture (FinalPath);
 			AddTexture.Wait (www);
+			UnityEngine.Application.LoadLevel(5);
 		} else {
 			FinalPath = null;
 		}

@@ -1,22 +1,115 @@
-Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+Initialize engine version: 4.6.2f1 (bd99309c2ad7)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 860M (ID=0x1392)
-    Vendor:   NVIDIA
-    VRAM:     1972 MB
+    Version:  Direct3D 11.0 [level 10.1]
+    Renderer: Intel(R) HD Graphics 3000 (ID=0x116)
+    Vendor:   Intel
+    VRAM:     128 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\User\Documents\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\User\Documents\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\User\Documents\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\User\Documents\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\User\Documents\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\User\Documents\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\User\Documents\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\User\Documents\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\User\Documents\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\System.Windows.Forms.dll (this message is harmless)
-Loading C:\Users\User\Documents\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
-- Completed reload, in  0.084 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+Platform assembly: C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\System.Windows.Forms.dll (this message is harmless)
+Loading C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
+- Completed reload, in  0.481 seconds
+desktop: 1366x768 40Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
+XInput1_3.dll not found.
 <RI> Input initialized.
+Platform assembly: C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\David\Documents\GitHub\PuzzlEye\PuzzlEye\PuzzlEye_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 10.569322 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 190.
+Total: 2.208375 ms (FindLiveObjects: 0.029897 ms CreateObjectMapping: 0.025881 ms MarkObjects: 0.420791 ms  DeleteObjects: 0.012048 ms)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1769)
+
+UnloadTime: 2.695208 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 214.
+Total: 2.716181 ms (FindLiveObjects: 0.037036 ms CreateObjectMapping: 0.040606 ms MarkObjects: 0.645243 ms  DeleteObjects: 0.014279 ms)
+
+file://C:/Users/David/Documents/GitHub/PuzzlEye/PuzzlEye/PuzzlEye_Data/Resources/airplane.jpg
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+UnloadTime: 2.035685 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 220.
+Total: 2.134301 ms (FindLiveObjects: 0.030343 ms CreateObjectMapping: 0.027219 ms MarkObjects: 0.331100 ms  DeleteObjects: 0.049531 ms)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+
+Actor::updateMassFromShapes: Compute mesh inertia tensor failed for one of the actor's mesh shapes! Please change mesh geometry or supply a tensor manually!
+ 
+(Filename: ..\..\Physics\src\NpActor.cpp Line: 134)
+

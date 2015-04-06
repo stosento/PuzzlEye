@@ -9,7 +9,7 @@ public class PuzzleIcon : MonoBehaviour {
 	{
 //		Debug.Log ("file://" + Application.dataPath + "/Resources/" + imageName + ".jpg");
 //
-//		UploadImage.FinalPath = new Texture2D (4, 4, TextureFormat.RGBA32, false);
+		UploadImage.FinalPath = new Texture2D (4, 4, TextureFormat.RGBA32, false);
 //		var www = new WWW ("file://" + Application.dataPath + "/Resources/" + imageName + ".jpg");
 //		www.LoadImageIntoTexture (UploadImage.FinalPath);
 //		AddTexture.Wait (www);
@@ -17,9 +17,8 @@ public class PuzzleIcon : MonoBehaviour {
 //		Debug.Log ("Format: " + UploadImage.FinalPath.format);
 
 
-		UploadImage.FinalPath = new Texture2D (4, 4, TextureFormat.RGBA32, false);
-		var resource = Resources.Load (imageName) as Texture2D;
-		UploadImage.FinalPath.LoadImage (resource.EncodeToJPG());
+//		UploadImage.FinalPath = new Texture2D (4, 4, TextureFormat.RGBA32, false);
+		UploadImage.FinalPath = Resources.Load (imageName) as Texture2D;
 
 	}
 

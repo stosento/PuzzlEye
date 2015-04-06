@@ -17,6 +17,8 @@ public class PuzzleAreaScript : MonoBehaviour {
 	public SphereCollider pieceCollider;
 	public Rigidbody pieceRigidBody;
 
+	public bool gameisover = false;
+
 	// Use this for initialization
 	void Start () {
 
@@ -53,6 +55,8 @@ public class PuzzleAreaScript : MonoBehaviour {
 
 		piecePlane = GameObject.CreatePrimitive(PrimitiveType.Plane);
 		piecePlane.gameObject.AddComponent<PuzzlePiece>();
+
+		GameObject.Find("PuzzleArea").AddComponent<Timer>();
 
 		for (int i = 0; i < rows; i++) {
 			piecePlanes[i] = new GameObject[columns];
@@ -96,13 +100,16 @@ public class PuzzleAreaScript : MonoBehaviour {
 		bool done = true;
 		for (int i = 0; i < rows; i++) {
 			for(int j = 0; j < columns; j++) {
-				if(piecePlanes[i][j].GetComponent<PuzzlePiece>().enabled) {
+				if(!piecePlanes[i][j].GetComponent<PuzzlePiece>().inCorrectPlace) {
 					done = false;
 				}
 			}
 		}
 		if (done) {
-			Debug.Log("DONE");   
+			GameObject go = GameObject.Find("PuzzleArea");
+			go.gameObject.GetComponent<Timer>().gameover = true;
+			Debug.Log("Gameover? : " + go.gameObject.GetComponent<Timer>().gameover);
+			Debug.Log("Time: " + go.gameObject.GetComponent<Timer>().time);
 		}
 	}
 }

@@ -7,8 +7,7 @@ public class PuzzlePiece : MonoBehaviour {
 
 	int row, column;
 	float minX, minY, maxX, maxY, halfW, halfH;
-	public bool inCorrectPlace = false; 
-	public bool gameOver = false;
+	public bool inCorrectPlace = false;
 
 	PuzzleAreaScript script;
 
@@ -40,7 +39,7 @@ public class PuzzlePiece : MonoBehaviour {
 			Destroy(this.collider);
 			Destroy(this.rigidbody);
 		}
-		if (this.rigidbody){
+		if (this.rigidbody && !this.rigidbody.isKinematic){
 			this.rigidbody.velocity = Vector3.zero;
 		}
 	}
@@ -65,11 +64,6 @@ public class PuzzlePiece : MonoBehaviour {
 				this.inCorrectPlace = true;
 				
 				script.correctPlaces++;
-				Debug.Log ("This piece just locked");
-				if (script.correctPlaces == script.rows * script.columns){
-					Debug.Log ("The game is over");
-					gameOver = true;
-				}
 			}
 		}
 	}

@@ -7,6 +7,8 @@ public class PuzzlePiece : MonoBehaviour {
 
 	int row, column;
 	float minX, minY, maxX, maxY, halfW, halfH;
+	public bool inCorrectPlace = false; 
+	public bool gameOver = false;
 
 	PuzzleAreaScript script;
 
@@ -34,42 +36,18 @@ public class PuzzlePiece : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//this.rigidbody.velocity = Vector3.zero;
-
-		/*acquired = false;
-		bool elseAcquired = false;
-		Vector3 mousePos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 12f);
-		mousePos = Camera.main.ScreenToWorldPoint (mousePos);
-		mousePos = new Vector3 (mousePos.x*-2f, mousePos.y*-2f, mousePos.z);
-
-		if (Input.GetMouseButtonDown (0) && (mousePos.x <= (this.transform.localPosition.x + script.pieceWidth)) 
-						&& (mousePos.x >= (this.transform.localPosition.x - script.pieceWidth)) 
-						&& (mousePos.y <= (this.transform.localPosition.z + script.pieceHeight))
-						&& (mousePos.y >= (this.transform.localPosition.z - script.pieceHeight))) 
-		{	 
-			for(int i = 0; i < script.rows; i++) {
-				for(int j = 0; j < script.columns; j++) {
-					if(script.piecePlanes[i][j].GetComponent<PuzzlePiece>().acquired) elseAcquired = true;
-				}
-			}
-			if(!elseAcquired) {
-				acquired = true;
-				this.transform.localPosition = new Vector3(mousePos.x, this.transform.localPosition.y, mousePos.y);
-			}
+		if (this.inCorrectPlace) {
+			Destroy(this.collider);
+			Destroy(this.rigidbody);
 		}
-
-		if((Math.Abs (Math.Abs (correctX) - Math.Abs (this.transform.localPosition.x)) < 0.3) 
-		   && (Math.Abs (Math.Abs (correctZ) - Math.Abs (this.transform.localPosition.z)) < 0.3)) {
-			acquired = false;
-			this.transform.localPosition = new Vector3(correctX, 0.9f, correctZ);
-			this.GetComponent<PuzzlePiece>().enabled = false;
-		}*/
+		if (this.rigidbody){
+			this.rigidbody.velocity = Vector3.zero;
+		}
 	}
 
 	void OnCollisionStay(Collision col) {
 		if (col.gameObject.tag == "Fingers") {
 			this.rigidbody.transform.position = col.gameObject.transform.renderer.bounds.center;
-			Debug.Log (this.rigidbody.transform.position);
 		}
 	}
 
@@ -81,11 +59,17 @@ public class PuzzlePiece : MonoBehaviour {
 			if((col.transform.position.x >= minX) && (col.transform.position.x <= maxX) && 
 			   (col.transform.position.y >= minY) && (col.transform.position.y <= maxY))
 			{
-				this.rigidbody.transform.position = new Vector3(minX + halfW, maxY - halfW, 0.5f);
+				this.rigidbody.transform.position = new Vector3(minX + halfW, maxY - halfW, 0);
 				this.rigidbody.isKinematic = true;
 				this.collider.enabled = false;
-				if (this.rigidbody)
-					Debug.Log ("Why are you here");
+				this.inCorrectPlace = true;
+				
+				script.correctPlaces++;
+				Debug.Log ("This piece just locked");
+				if (script.correctPlaces == script.rows * script.columns){
+					Debug.Log ("The game is over");
+					gameOver = true;
+				}
 			}
 		}
 	}

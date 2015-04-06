@@ -4,7 +4,7 @@ using System.Threading;
 
 public class PuzzleAreaScript : MonoBehaviour {
 	
-	public int rows, columns;
+	public int rows, columns, correctPlaces=0;
 	public GameObject[][] piecePlanes;
 	public GameObject piecePlane;
 
@@ -13,6 +13,9 @@ public class PuzzleAreaScript : MonoBehaviour {
 
 	public float pieceHeight;
 	public float pieceWidth;
+
+	public SphereCollider pieceCollider;
+	public Rigidbody pieceRigidBody;
 
 	// Use this for initialization
 	void Start () {
@@ -36,7 +39,6 @@ public class PuzzleAreaScript : MonoBehaviour {
 	void GeneratePiecePlanes(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
-
 		
 		piecePlanes = new GameObject[rows][];
 		
@@ -80,8 +82,8 @@ public class PuzzleAreaScript : MonoBehaviour {
 				piecePlanes[i][j].name = "Piece:(" + i.ToString() + "," + j.ToString() + ")";
 				piecePlanes[i][j].tag = "Pieces";
 
-				SphereCollider pieceCollider = piecePlanes[i][j].AddComponent<SphereCollider>();
-				Rigidbody pieceRigidBody = piecePlanes[i][j].AddComponent<Rigidbody>();
+				pieceCollider = piecePlanes[i][j].AddComponent<SphereCollider>();
+				pieceRigidBody = piecePlanes[i][j].AddComponent<Rigidbody>();
 
 				pieceRigidBody.freezeRotation = true;
 				pieceRigidBody.useGravity = false;
@@ -94,8 +96,6 @@ public class PuzzleAreaScript : MonoBehaviour {
 		bool done = true;
 		for (int i = 0; i < rows; i++) {
 			for(int j = 0; j < columns; j++) {
-				if (piecePlanes[i][j].rigidbody)
-					piecePlanes[i][j].rigidbody.velocity = Vector3.zero;
 				if(piecePlanes[i][j].GetComponent<PuzzlePiece>().enabled) {
 					done = false;
 				}

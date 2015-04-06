@@ -8,7 +8,7 @@ public class Options: MonoBehaviour {
 	private string	msg;
 	public GUIStyle largetext;
 	public float time;
-	
+
 	void Awake() {
 		Application.targetFrameRate=30;
 	}
@@ -54,7 +54,7 @@ public class Options: MonoBehaviour {
 		else
 			GUI.Label(new Rect (620, 10, 230, 400), "Time : " + secondsTaken);
 
-		if (GameOver()) {
+		if (GameOver ()) {
 			Debug.Log("Game Over");
 			time = (minutesTaken * 60) + secondsTaken;
 			GUI.Label(new Rect (400, 250, 500, 400), "Good Game! Press Restart to Play Again!", largetext);
@@ -65,9 +65,11 @@ public class Options: MonoBehaviour {
 		msg=msg2;
 	}
 	private bool GameOver() {
-		/*GameObject go = GameObject.FindWithTag("Balls");
-		if (go == null) return true;*/
-		return false;
+		/*PuzzlePiece script = GetComponent<PuzzlePiece>();
+		if (script.gameOver)
+			return true;
+		else*/
+			return false;
 	}
 	private IEnumerator Pause(int p) {
 		Time.timeScale = 0.1f;

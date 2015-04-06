@@ -32,11 +32,13 @@ public class Options: MonoBehaviour {
 			Application.LoadLevel(Application.loadedLevel);
 		}
 		if (GUI.Button (new Rect (10,70,120,30), "Main Menu")) {
-			//This will change to Application.Quit() when the game is a .exe
 			Application.LoadLevel(0);
 		}
+		if (GUI.Button (new Rect (10,100,120,30), "Quit")) {
+			Application.Quit();
+		}
 		
-		GUI.Label(new Rect(10, 100, 230, 400), 
+		GUI.Label(new Rect(10, 130, 230, 400), 
 			msg!=null?msg:"Instructions: Show your hand(s) to the camera, "+
 			"and use your fingertips to interact with the colored balls.\n\n"+
 			"Challenge: Use your finger to select a ball, pinch to release.\n\n" +

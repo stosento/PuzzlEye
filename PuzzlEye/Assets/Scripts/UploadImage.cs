@@ -18,8 +18,9 @@ public class UploadImage : MonoBehaviour {
 		dialog.Multiselect = false;
 		dialog.ShowDialog ();
 		var path = dialog.FileName;
+		Debug.Log (dialog.FileName);
 
-		if (path != null) {
+		if (!String.IsNullOrEmpty(path)) {
 			if (!Paths.Contains (path))
 				Paths.Add (path);
 			var www = new WWW ("file://" + path);

@@ -14,7 +14,7 @@ public class ChoosePuzzlePlayButtonScript : MonoBehaviour {
 			EditorUtility.DisplayDialog("No Image Selected", "Please select an image!", "OK");
 			#endif
 		} else {
-			Application.LoadLevel(5);
+			Application.LoadLevel(3);
 		}
 	}
 }

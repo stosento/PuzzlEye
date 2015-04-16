@@ -80,7 +80,7 @@ public class PuzzleAreaScript : MonoBehaviour {
 				piecePlanes[i][j].transform.localPosition = new Vector3( randX, 1f, randY);
 
 				//Will place puzzle pieces in correct location initially
-//				piecePlanes[i][j].transform.localPosition = new Vector3((-2)*j*pieceHeight + (totalHeight - pieceHeight), 2f, (-2)*i*pieceWidth + (totalWidth - pieceWidth));
+				//piecePlanes[i][j].transform.localPosition = new Vector3((-2)*j*pieceHeight + (totalHeight - pieceHeight), 2f, (-2)*i*pieceWidth + (totalWidth - pieceWidth));
 
 				piecePlanes[i][j].renderer.material.mainTexture = AddDynamicTexture.ApplyDynamicTexture(i, j, DifficultySelectionScript.Difficulty);
 				piecePlanes[i][j].name = "Piece:(" + i.ToString() + "," + j.ToString() + ")";

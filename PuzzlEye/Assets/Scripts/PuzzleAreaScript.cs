@@ -67,7 +67,7 @@ public class PuzzleAreaScript : MonoBehaviour {
 				float randY = 0f;
 
 				while(((Mathf.Abs(randX) <= (5f + pieceWidth) && (Mathf.Abs(randY) <= (5f + pieceHeight))))) {
-					randX = Random.Range (-20f, 20f);
+					randX = Random.Range (-15f, 15f);
 					randY = Random.Range (-7f, 7f);
 				}
 

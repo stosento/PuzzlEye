@@ -108,8 +108,6 @@ public class PuzzleAreaScript : MonoBehaviour {
 		if (done) {
 			GameObject go = GameObject.Find("PuzzleArea");
 			go.gameObject.GetComponent<Timer>().gameover = true;
-			Debug.Log("Gameover? : " + go.gameObject.GetComponent<Timer>().gameover);
-			Debug.Log("Time: " + go.gameObject.GetComponent<Timer>().time);
 		}
 	}
 }

@@ -25,7 +25,6 @@ public class Options: MonoBehaviour {
 				Application.LoadLevel(0);
 			}
 			if (GUI.Button (new Rect (10,130,120,30), "Quit")) {
-				if (GUI.Button (new Rect (10,130,120,30), "Are You Sure?"))
 				Application.Quit();
 			}
 			if (GUI.Button (new Rect (5, 160, 130, 30), "Choose New Puzzle")) {

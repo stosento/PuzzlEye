@@ -4,7 +4,6 @@ using System.Collections;
 public class Timer : MonoBehaviour {
 	public 	float	 secondsTaken = 0;
 	public  float 	 minutesTaken = 0;
-	public 	float 	 time;
 	public 	bool	 gameover = false;
 	public 	GUIStyle largetext;
 
@@ -18,10 +17,12 @@ public class Timer : MonoBehaviour {
 	void Start() {
 		largetext = new GUIStyle();
 		largetext.fontSize = 30;
-		largetext.normal.textColor = Color.white;
+		largetext.normal.textColor = Color.black;
 	}
 
 	void OnGUI() {
+		GUI.color = Color.black;
+
 		if (secondsTaken > 60) {
 			minutesTaken++;
 			secondsTaken = 0;
@@ -36,10 +37,8 @@ public class Timer : MonoBehaviour {
 			EndGame ();
 	}
 	public void EndGame() {
-		Debug.Log("Game Over");
-		time = (minutesTaken * 60) + secondsTaken;
 		GUI.Label(new Rect (600, 70, 500, 400), "Good Game!", largetext);
-		GUI.Label(new Rect (530, 100, 500, 400), "Your Time: " + time, largetext);
-		GUI.Label(new Rect (450, 550, 500, 400), "Press Restart or Menu to Play Again!", largetext);
+		GUI.Label(new Rect (530, 100, 500, 400), "Your Time: " + minutesTaken + ":" + secondsTaken, largetext);
+		GUI.Label(new Rect (450, 500, 500, 400), "Press Restart or Menu to Play Again!", largetext);
 	}
 }

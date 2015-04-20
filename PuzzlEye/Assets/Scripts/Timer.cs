@@ -39,6 +39,6 @@ public class Timer : MonoBehaviour {
 	public void EndGame() {
 		GUI.Label(new Rect (600, 70, 500, 400), "Good Game!", largetext);
 		GUI.Label(new Rect (530, 100, 500, 400), "Your Time: " + minutesTaken + ":" + secondsTaken, largetext);
-		GUI.Label(new Rect (450, 500, 500, 400), "Press Restart or Menu to Play Again!", largetext);
+		GUI.Label(new Rect (450, 670, 500, 400), "Press Restart or Menu to Play Again!", largetext);
 	}
 }

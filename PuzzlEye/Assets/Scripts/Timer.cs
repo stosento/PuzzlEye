@@ -37,6 +37,9 @@ public class Timer : MonoBehaviour {
 			EndGame ();
 	}
 	public void EndGame() {
+		DataService db = new DataService ("PuzzlEye.db");
+		db.addUserScore (LoginScript._curUser, (int) ((minutesTaken * 60) + secondsTaken));
+
 		GUI.Label(new Rect (600, 70, 500, 400), "Good Game!", largetext);
 		GUI.Label(new Rect (530, 100, 500, 400), "Your Time: " + minutesTaken + ":" + secondsTaken, largetext);
 		GUI.Label(new Rect (450, 670, 500, 400), "Press Restart or Menu to Play Again!", largetext);

@@ -1,4 +1,6 @@
-Hello! Welcome to PuzzlEye. The purpose of this README is to help get you set up within the PuzzlEye environment so that you can either contribute to the project or simply want to see what we have done up to this point. Here are the steps:
+Hello! Welcome to PuzzlER (Puzzle ER), formerly known as PuzzlEye. The purpose of this README is to help get you set up within the PuzzlEye environment so that you can either contribute to the project or simply want to see what we have done up to this point. Here are the steps:
+
+Google Drive Link: Laura and Dalton, you two should have access to it now. This google drive has the zip file for our final release, as well as an executable to run.
 
 1) Install Unity 3D Pro 4.6.1 or any other pro version of Unity above 4.3.
 
@@ -10,7 +12,7 @@ http://www.softkinetic.com/Support/Download?EntryId=417
 4) Clone the PuzzlEye repository from GitHub, it is public:
 https://github.com/stosento/PuzzlEye
 
-5) Plug in the Creative Senz3D camera via USB 3.0 to your computer.
+5) Plug in the Creative Senz3D camera via USB to your computer.
 
 6) Open Unity and open the PuzzlEye project you pulled.
 

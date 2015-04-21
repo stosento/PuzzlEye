@@ -36,7 +36,7 @@ public class Options: MonoBehaviour {
 				Application.LoadLevel(0);
 			}
 			GUI.color = Color.red;
-			if (GUI.Button (new Rect (10,410,130,100), readytoquit?"Press Again to Quit":"Quit", largetext)) {
+			if (GUI.Button (new Rect (10,410,130,100), readytoquit?"Quit, Really?":"Quit", largetext)) {
 				if (readytoquit)
 					Application.Quit();
 				else

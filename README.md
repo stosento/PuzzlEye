@@ -1,6 +1,6 @@
 Hello! Welcome to PuzzlER (Puzzle ER), formerly known as PuzzlEye. The purpose of this README is to help get you set up within the PuzzlEye environment so that you can either contribute to the project or simply want to see what we have done up to this point. Here are the steps:
 
-Google Drive Link: Laura and Dalton, you two should have access to it now. This google drive has the zip file for our final release, as well as an executable to run.
+Google Drive Link: Laura and Dalton, you two should have access to it now. This google drive has the zip file for our final release, as well as an executable to run, both of which can be found within the "Final Release Folder" Additionally, there are our bug completion list from the beta. Feel free to explore other documents wihtin the google drive as well.
 
 1) Install Unity 3D Pro 4.6.1 or any other pro version of Unity above 4.3.
 

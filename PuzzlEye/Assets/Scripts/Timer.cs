@@ -29,7 +29,9 @@ public class Timer : MonoBehaviour {
 		}
 		
 		if (minutesTaken > 0)
+			GUI.Label(new Rect (570, 10, 230, 400), "Time : " + minutesTaken + ":" + secondsTaken, largetext);
 		else
+			GUI.Label(new Rect (570, 10, 230, 400), "Time : " + secondsTaken, largetext);
 		
 		if (gameover)
 			EndGame ();
